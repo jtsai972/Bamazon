@@ -1,4 +1,8 @@
 # Making sure we don't accidentally upload node
 node_modules/
+
+# Not sure what this is, probably something to do with a USB
 .DS_Store/
-.env/
+
+# Trying to avoid uploading the .env file
+.env

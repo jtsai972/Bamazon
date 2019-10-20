@@ -1,9 +1,28 @@
 console.log('\nServer Connection configured\n');
 
-exports.database = {
-    host: process.env.SERVER_HOST,
-    port: process.env.SERVER_PORT,
-    user: process.env.SERVER_USER,
-    password: process.env.SERVER_PASS,
-    database: process.env.SERVER_DB
+const dotenv = require("dotenv");
+const result = dotenv.config({path: "./../../.env"})
+
+function configChk() {
+    console.log('No value for DB yet:', process.env.DB);
+
+    if (result.error) {
+        throw result.error
+    }
+    
+    console.log(result.parsed)
+
+console.log('Now the value for DB is:', process.env.DB);
+}
+
+let database = {
+    host: process.env.DB_HOST,
+    port: process.env.DB_PORT,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASS,
+    database: process.env.DB
 };
+
+exports.database = database;
+
+//console.log(database);

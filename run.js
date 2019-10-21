@@ -1,17 +1,13 @@
 console.log("Running program");
 
-// * Adding in dotenv/server requirements
-require("dotenv").config();
-const mySQL = require("mysql");
-const server = require("./assets/scripts/server");
-const connection = mySQL.createConnection(server);
-
 // * Adding in inquirer
 const inquirer = require("inquirer");
 
 // * Adding files
     // * Adding in a random generator file (not necessary)
     //const generator = require("./assets/scripts/randomGeneration");
+    // * Adding in server access 
+    //const server = require("./assets/scripts/serverAccess");
 
     // * Adding in the bamazonCustomer file
     const customer = require("./assets/scripts/bamazonCustomer");
@@ -33,7 +29,7 @@ function start() {
             name: "user"
         }
     ]).then(answer => {
-
+        console.log("answering")
         switch(answer.user) {
             default:
                 customer();
@@ -42,9 +38,4 @@ function start() {
 
         //closingConnection();
     })
-}
-
-function closingConnection() {
-    console.log("Ending connection");
-    connection.end();
 }

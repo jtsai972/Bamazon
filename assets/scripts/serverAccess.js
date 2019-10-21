@@ -6,18 +6,16 @@ let connection;
 
 
 let openDB = function() {
-    if (!connection) {
-        connection = mySQL.createConnection(server.database);
+    connection = mySQL.createConnection(server.database);
 
-        connection.connect(function(err){
-            if(!err) {
-                console.log('Database is connected!');
-            } else {
-                console.log('Error connecting database!');
-            }
-        });
-        return connection;
-    }
+    connection.connect(function(err){
+        if(!err) {
+            console.log('Database is connected!');
+        } else {
+            console.log('Error connecting database!');
+        }
+    });
+    return connection;
 }
 
 let closeDB = function() {

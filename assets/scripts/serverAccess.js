@@ -21,7 +21,7 @@ let openDB = function() {
 }
 
 let closeDB = function() {
-    console.log("Ending connection");
+    console.log("\nEnding connection");
     connection.end();
 }
 

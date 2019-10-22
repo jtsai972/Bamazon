@@ -10,7 +10,7 @@ let openDB = function() {
 
     connection.connect(function(err){
         if(!err) {
-            console.log('Database is connected!');
+            //console.log('Database is connected!');
         } else {
             console.log('Error connecting database!');
         }
@@ -19,7 +19,7 @@ let openDB = function() {
 }
 
 let closeDB = function() {
-    console.log("\nEnding connection\n");
+    //console.log("\nEnding connection\n");
     connection.end();
 }
 

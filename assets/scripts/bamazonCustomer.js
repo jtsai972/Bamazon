@@ -1,5 +1,9 @@
 // console.log("Entering customer perspective");
 
+/**-----------------------------------------------
+ * * Setting up Globals
+ * ----------------------------------------------- */
+
 // * setting up requirements
 const inquirer = require("inquirer");
 const server = require("./serverAccess");
@@ -8,12 +12,18 @@ const dDiv = "------------------------------------------------------",
 
 let first, last;
 
+/**-----------------------------------------------
+ * * Exporting this
+ * ----------------------------------------------- */
 let customer = function(){
     //console.log("Hi, I'm a customer!");
     start();
 }
-
 module.exports = customer;
+
+/**-----------------------------------------------
+ * * Starting Stuff down here
+ * ----------------------------------------------- */
 
 //start();
 function start() {
@@ -35,6 +45,10 @@ function start() {
     //console.log(query.sql);
     query
 }
+
+/**-----------------------------------------------
+ * * Purchasing Prompt Stuff down here
+ * ----------------------------------------------- */
 
 function purchasePrompt(res) {
     inquirer.prompt([
@@ -148,6 +162,7 @@ function newPurchase() {
     ]).then(answer => {
         console.log("\n" + eDiv + "\n");
         if(answer.continue === "yes") {
+            server.closeDB();
             start();
         } else {
             console.log("\nThank you for shopping with Bamazon!");

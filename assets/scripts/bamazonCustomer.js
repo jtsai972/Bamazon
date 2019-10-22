@@ -19,8 +19,6 @@ let customer = function(){
 
 module.exports = customer;
 
-customer();
-
 //start();
 function start() {
     var query = server.openDB().query("SELECT * FROM products", function(err, res) {
@@ -56,9 +54,9 @@ function start() {
             console.log(" ");
 
             //Item and current quantity
-            console.log(`Item: ${item.name} \nQuantity: ${item.quantity}`);
+            //console.log(`Item: ${item.name} \nQuantity: ${item.quantity}`);
 
-            console.log(" ");
+            //console.log(" ");
 
             if (item.quantity < num) {
                 console.log( 
@@ -68,19 +66,29 @@ function start() {
                 )
                 server.closeDB();
             } else {
-                purchase(id, item.quantity, num)
+                let receipt = [
+                    "Item: " + item.name,
+                    "Quantity: " + num,
+                    "Price: " + item.price,
+                    "Total: " + (item.price * num).toFixed(2),
+                    "\n"
+                ].join("\n");
+                console.log(receipt);
+                purchase(id, item.quantity, num);
             }
         })
         
     });
-    console.log(query.sql);
+    //console.log(query.sql);
+    query
 }
 
 /**-----------------------------------------------
  * * Purchasing Stuff down here
  * ----------------------------------------------- */
 function purchase(id, stock, purchase) {
-    console.log("Purchasing");
+    //console.log("Purchasing");
+
     var query = server.openDB().query(
         "UPDATE products SET ? WHERE ?",
         [{quantity: (stock-purchase)},{id: id}],
@@ -91,7 +99,8 @@ function purchase(id, stock, purchase) {
             showProducts()
         }
     )
-    console.log(query.sql);
+    //console.log(query.sql);
+    query
 }
 
 /**-----------------------------------------------
@@ -110,7 +119,8 @@ function showProducts() {
             server.closeDB();
         }
     )
-    console.log(query.sql);
+    //console.log(query.sql);
+    query
 }
 
 

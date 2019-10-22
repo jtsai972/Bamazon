@@ -141,18 +141,19 @@ function addInv() {
 
         console.log("Reached answer");
         var query = server.openDB().query(
-            "UPDATE products SET ? WHERE ?",
-            [{quantity: answer.quantity},{id: answer.id}],
+            "UPDATE products SET quantity = quantity + ? WHERE ? ",
+            [answer.quantity,{id: answer.id}],
             function(err, res) {
                 if (err) throw err;
                 console.log(res.affectedRows + " products updated!\n");
     
                 console.log(`Added ${answer.quantity} to the product with the id of ${answer.id}`);
+
+                exit();
             }
         )
-        //console.log(query.sql);
-        query
-        exit();
+        console.log(query.sql);
+        //query
     })
 }
 /**-----------------------------------------------

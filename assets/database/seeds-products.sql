@@ -1,6 +1,9 @@
 -- Using Database
 USE bamazon_db;
 
+-- For resetting table content only
+-- DELETE FROM products;
+
 -- SEEDING DATABASE WITH INFO
 INSERT INTO products (name, department, price, quantity)
 VALUES 

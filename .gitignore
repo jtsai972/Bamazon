@@ -6,3 +6,6 @@ node_modules/
 
 # Trying to avoid uploading the .env file
 .env
+
+# Ignoring my test file
+test.js

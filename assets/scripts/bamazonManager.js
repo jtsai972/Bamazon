@@ -24,7 +24,7 @@ let manager = () => {
     start();
 }
 module.exports = manager;
-manager();
+
 /**-----------------------------------------------
  * * Counting Products 
  * ----------------------------------------------- */

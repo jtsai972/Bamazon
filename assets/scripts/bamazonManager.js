@@ -24,7 +24,7 @@ let manager = () => {
     start();
 }
 module.exports = manager;
-
+manager();
 /**-----------------------------------------------
  * * Counting Products 
  * ----------------------------------------------- */
@@ -103,8 +103,7 @@ function viewProducts() {
  * ----------------------------------------------- */
 function viewLowInv() {
     var query = server.openDB().query(
-        "SELECT * FROM products WHERE ?",
-        {quantity: " < 5"},
+        "SELECT * FROM products WHERE quantity < 5",
         function(err, res) {
             if (err) throw err;
 
@@ -116,8 +115,8 @@ function viewLowInv() {
             exit();
         }
     );
-    //console.log(query.sql);
-    query
+    console.log(query.sql);
+    //query
 }
 
 /**-----------------------------------------------

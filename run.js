@@ -1,4 +1,4 @@
-console.log("Running program");
+//console.log("Running program");
 
 // * Adding in inquirer
 const inquirer = require("inquirer");
@@ -12,15 +12,22 @@ const inquirer = require("inquirer");
     // * Adding in the bamazonCustomer file
     const customer = require("./assets/scripts/bamazonCustomer");
 
+//* Formatting 
+const dDiv = "------------------------------------------------------",
+    eDiv = "======================================================";
+
+const welcome = `\n${eDiv}\n\nWelcome to Bamazon!\n${dDiv}`;
+
 //* Starting 
 start();
 
 // * Functions
 function start() {
+    console.log(welcome)
     inquirer.prompt([
         {
             type: "list",
-            message: "Hello, what functionality do you want to access? (Unimplemented stuff will redirect you to customer",
+            message: "What functionality do you want to access? (Unimplemented items will redirect you to customer)",
             choices: [
                 "customer",
                 "manager (not implemented)",
@@ -29,7 +36,8 @@ function start() {
             name: "user"
         }
     ]).then(answer => {
-        console.log("answering")
+        //console.log("answering")
+        console.log("\n" + eDiv + "\n");
         switch(answer.user) {
             default:
                 customer();

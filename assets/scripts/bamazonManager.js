@@ -183,22 +183,50 @@ function isNum(answer) {
  * * Add New Product
  * ----------------------------------------------- */
 function addProducts() {
-    var query = server.openDB().query(
-        "INSERT INTO products (name, department, price, quantity)\n VALUE ?",
-        {},
-        function(err, res) {
-            if (err) throw err;
-
-            for(let i = 0; i < res.length; i++) {
-                res[i].price = res[i].price.toFixed(2);
-            }
-
-            console.table(res);
-            exit();
+    inquirer.prompt([
+        {
+            type: "input",
+            message: "What is the name of this product?",
+            name: "name"
+        },
+        {
+            type: "input",
+            message: "What department does this product belong to?",
+            name: "department"
+        },
+        {
+            type: "input",
+            message: "What is the price of this product?",
+            name: "price"
+        },
+        {
+            type: "input",
+            message: "How much of this product are we adding into the inventory?",
+            name: "quantity"
         }
-    );
-    //console.log(query.sql);
-    //query
+    ]).then( answer => {
+        let newProduct = {
+            name: answer.name,
+            department: answer.department,
+            price: parseFloat(answer.price),
+            quantity: parseInt(answer.quantity)
+        };
+        //console.log(newProduct)
+
+        var query = server.openDB().query(
+            "INSERT INTO products SET ?",
+            newProduct,
+            function(err, res) {
+                if (err) throw err;
+    
+                console.log(res.affectedRows + " new product added!\n");
+
+                exit();
+            }
+        );
+        //console.log(query.sql);
+        query
+    })
 }
 
 

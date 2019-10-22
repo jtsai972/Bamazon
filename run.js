@@ -6,11 +6,11 @@ const inquirer = require("inquirer");
 // * Adding files
     // * Adding in a random generator file (not necessary)
     //const generator = require("./assets/scripts/randomGeneration");
-    // * Adding in server access 
-    //const server = require("./assets/scripts/serverAccess");
+    const path = "./assets/scripts/bamazon";
 
-    // * Adding in the bamazonCustomer file
-    const customer = require("./assets/scripts/bamazonCustomer");
+    // * Adding in the bamazon files
+    const customer = require( path + "Customer");
+    const manager = require(path + "Manager");
 
 //* Formatting 
 const dDiv = "------------------------------------------------------",
@@ -30,7 +30,7 @@ function start() {
             message: "What functionality do you want to access? (Unimplemented items will redirect you to customer)",
             choices: [
                 "customer",
-                "manager (not implemented)",
+                "manager",
                 "supervisor (not implemented)"
             ],
             name: "user"
@@ -39,11 +39,17 @@ function start() {
         //console.log("answering")
         console.log("\n" + eDiv + "\n");
         switch(answer.user) {
+            case "manager": 
+                manager();
+                break;
+
+            // case "supervisor":
+            //     supervisor();
+            //     break;
+
             default:
                 customer();
                 break;
         }
-
-        //closingConnection();
     })
 }

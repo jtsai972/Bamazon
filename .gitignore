@@ -9,3 +9,5 @@ node_modules/
 
 # Ignoring my test file
 test.js
+
+raw projects/

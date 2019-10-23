@@ -106,7 +106,7 @@ Contributions are what make the open source community such an amazing place to b
 
 ### Screenshot Thumbnails
 
-Sorry, don't got anything to show just yet. Check back in a couple days.
+These two screenshots are of running the program as a customer (left) and running the program as a manager (right).
 
 <div align="center">
   <img src="https://raw.githubusercontent.com/jtsai972/Bamazon/master/assets/images/run-customer.gif" alt ="Gif of app running as a customer" width="45%">

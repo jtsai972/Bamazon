@@ -115,8 +115,8 @@ function viewLowInv() {
             exit();
         }
     );
-    console.log(query.sql);
-    //query
+    //console.log(query.sql);
+    query
 }
 
 /**-----------------------------------------------
@@ -138,8 +138,7 @@ function addInv() {
             validate: isNum
         }
     ]).then(answer => {
-
-        console.log("Reached answer");
+        //console.log("Reached answer");
         var query = server.openDB().query(
             "UPDATE products SET quantity = quantity + ? WHERE ? ",
             [answer.quantity,{id: answer.id}],
@@ -152,8 +151,8 @@ function addInv() {
                 exit();
             }
         )
-        console.log(query.sql);
-        //query
+        //console.log(query.sql);
+        query
     })
 }
 /**-----------------------------------------------

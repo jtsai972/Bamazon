@@ -46,6 +46,8 @@ An amazon node/mySQL mini-exploration -->
 
 This project will be an experiment in Node.js and MySQL. In this project I will be creating an Amazon-like storefront which will be able to take in orders from customers and deplete stock from the store's inventory. 
 
+I have also added a manager's option that allows people to add new products, view products, view low inventory items, and replenish the inventory.
+
 Hopefully I'll b able to add stuff like tracking product sales across different departments and providing summaries of the highest-grossing departments in the store.
 
 ### Built With
@@ -83,6 +85,8 @@ npm install
 
 You will have to create your own MySQL Database and .env file in order to run this program.
 
+Command to run this program is `node run` in the root directory of this program. (The one with the run.js file)
+
 You can find some example images in the [images folder](https://github.com/jtsai972/Bamazon/tree/master/assets/images) `assets > images` or check out some quick thumbnails in [Screenshot Thumbnails](#screenshot-thumbnails)
 
 [Back to Table of Contents](#table-of-contents)
@@ -104,11 +108,11 @@ Contributions are what make the open source community such an amazing place to b
 
 Sorry, don't got anything to show just yet. Check back in a couple days.
 
-<!-- <div align="center">
-  <img src="https://raw.githubusercontent.com/jtsai972/Bamazon/master/assets/images/ss-starting-game.PNG" alt ="Screenshot of starting the game" width="45%">
+<div align="center">
+  <img src="https://raw.githubusercontent.com/jtsai972/Bamazon/master/assets/images/run-customer.gif" alt ="Gif of app running as a customer" width="45%">
   <span>&nbsp;</span>
-  <img src="https://raw.githubusercontent.com/jtsai972/Bamazon/master/assets/images/ss-exiting-game.PNG" alt ="Screenshot of exiting the game" width="45%">
-</div> -->
+  <img src="https://raw.githubusercontent.com/jtsai972/Bamazon/master/assets/images/run-manager.gif" alt ="Gif of app running as a manager" width="45%">
+</div>
 
 [Back to Table of Contents](#table-of-contents)
 
